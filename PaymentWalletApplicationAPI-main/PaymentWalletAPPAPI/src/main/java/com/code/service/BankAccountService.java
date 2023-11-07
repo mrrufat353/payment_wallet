@@ -1,7 +1,5 @@
 package com.code.service;
 
-import java.util.Set;
-
 import com.code.exception.BankAccountNotExsists;
 import com.code.exception.BankAlreadyAdded;
 import com.code.exception.NotAnyBankAddedYet;

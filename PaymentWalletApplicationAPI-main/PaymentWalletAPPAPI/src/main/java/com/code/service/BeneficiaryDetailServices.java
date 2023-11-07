@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.code.exception.BeneficiaryDetailException;
 import com.code.model.BeneficiaryDetail;
-import com.code.model.Customer;
 
 public interface BeneficiaryDetailServices {
 	public BeneficiaryDetail addBeneficiary(String uniqueId, BeneficiaryDetail beneficiaryDetail)

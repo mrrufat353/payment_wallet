@@ -14,7 +14,6 @@ import com.code.model.Wallet;
 import com.code.repository.BeneficiaryDetailDao;
 import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
-import com.code.repository.WalletDao;
 
 @Service
 public class BeneficiaryDetailServicesImpl implements BeneficiaryDetailServices {
@@ -22,8 +21,6 @@ public class BeneficiaryDetailServicesImpl implements BeneficiaryDetailServices 
 	private BeneficiaryDetailDao bDao;
 	@Autowired
 	private SessionDAO sDao;
-	@Autowired
-	private WalletDao wDao;
 	@Autowired
 	private CustomerDAO customerDao;
 	

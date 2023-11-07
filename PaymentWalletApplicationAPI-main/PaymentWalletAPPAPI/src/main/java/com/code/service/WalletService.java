@@ -1,7 +1,5 @@
 package com.code.service;
 
-import java.math.BigDecimal;
-
 import java.util.*;
 
 import javax.naming.InsufficientResourcesException;
@@ -13,7 +11,6 @@ import com.code.exception.LoginException;
 import com.code.model.BeneficiaryDetail;
 import com.code.model.Customer;
 import com.code.model.Transaction;
-import com.code.model.Wallet;
 
 public interface WalletService {
 

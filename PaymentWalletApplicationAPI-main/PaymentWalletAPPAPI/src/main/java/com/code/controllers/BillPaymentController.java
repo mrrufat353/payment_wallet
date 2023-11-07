@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.code.exception.BillNotExisttException;
 import com.code.exception.InsufficientBalanceException;
 import com.code.exception.UserNotLogedinException;
 import com.code.model.BillPayment;

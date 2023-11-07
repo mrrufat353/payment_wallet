@@ -9,16 +9,12 @@ import com.code.exception.LoginException;
 import com.code.model.Customer;
 import com.code.model.Wallet;
 import com.code.repository.CustomerDAO;
-import com.code.repository.WalletDao;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
 	private CustomerDAO signUpDAO;
-	
-	@Autowired
-	private WalletDao walletDao;
  	
 	@Autowired
 	private CurrentUserSessionService getCurrentLoginUserSession;

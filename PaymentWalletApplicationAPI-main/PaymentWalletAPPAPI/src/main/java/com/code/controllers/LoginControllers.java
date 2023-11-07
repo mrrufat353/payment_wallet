@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.code.exception.LoginException;
-import com.code.model.Customer;
 import com.code.model.LogIn;
-import com.code.service.CustomerService;
 import com.code.service.LoginService;
 
 @CrossOrigin(origins = "*")

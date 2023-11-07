@@ -1,22 +1,17 @@
 package com.code.controllers;
 
-import java.math.BigDecimal;
-
 import java.util.List;
 
 import javax.naming.InsufficientResourcesException;
 
-import org.hibernate.validator.constraints.Currency;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,13 +20,8 @@ import com.code.exception.CustomerNotException;
 import com.code.exception.InsufficientBalanceException;
 import com.code.exception.LoginException;
 import com.code.model.BeneficiaryDetail;
-import com.code.model.CurrentSessionUser;
 import com.code.model.Customer;
 import com.code.model.Transaction;
-import com.code.model.Wallet;
-import com.code.repository.SessionDAO;
-import com.code.service.CurrentUserSessionServiceImpl;
-import com.code.service.CustomerServiceImpl;
 import com.code.service.WalletServiceImpl;
 @CrossOrigin(origins = "*")
 @RestController
@@ -40,12 +30,6 @@ public class WalletController {
 
 	@Autowired
 	private WalletServiceImpl walletServiceImpl;
-
-	@Autowired
-	private CustomerServiceImpl customerServiceImpl;
-
-	@Autowired
-	private CurrentUserSessionServiceImpl currentuserSesionServiceImpl;
 	
 	
 	@GetMapping("/{id}")

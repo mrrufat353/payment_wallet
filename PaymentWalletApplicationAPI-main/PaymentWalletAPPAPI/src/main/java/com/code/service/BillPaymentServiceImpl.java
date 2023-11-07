@@ -14,7 +14,6 @@ import com.code.model.CurrentSessionUser;
 import com.code.model.Customer;
 import com.code.model.Transaction;
 import com.code.model.Wallet;
-import com.code.repository.BankAccountDao;
 import com.code.repository.BillPaymentDao;
 import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
@@ -32,9 +31,6 @@ public class BillPaymentServiceImpl implements BillPaymentService {
 
 	@Autowired
 	private CustomerDAO cDao;
-
-	@Autowired
-	private BankAccountDao bankAccoundDao;
 
 	@Autowired
 	private WalletDao walletDao;

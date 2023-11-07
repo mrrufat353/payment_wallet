@@ -1,20 +1,10 @@
 package com.code.service;
 
-import java.lang.StackWalker.Option;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
-
-import javax.naming.InsufficientResourcesException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PutMapping;
-
-import com.code.exception.BankAccountNotExsists;
 import com.code.exception.BeneficiaryDetailException;
 import com.code.exception.CustomerNotException;
 import com.code.exception.InsufficientBalanceException;
@@ -28,9 +18,7 @@ import com.code.model.Transaction;
 import com.code.model.TransactionType;
 import com.code.model.Wallet;
 import com.code.repository.BankAccountDao;
-import com.code.repository.BeneficiaryDetailDao;
 import com.code.repository.CustomerDAO;
-import com.code.repository.LogInDAO;
 import com.code.repository.SessionDAO;
 import com.code.repository.TransactionDao;
 import com.code.repository.WalletDao;
@@ -42,13 +30,7 @@ public class WalletServiceImpl implements WalletService {
 	private TransactionDao transactiodao;
 	
 	@Autowired
-	private TranscationServiceImpl transactionserviceImpl;
-	
-	@Autowired
 	private BankAccountDao bankaccountdao;
-	
-	@Autowired
-	private BeneficiaryDetailDao beneficiaryDetailDao;
 	
 	
 	@Autowired
@@ -59,10 +41,6 @@ public class WalletServiceImpl implements WalletService {
 	
 	@Autowired
 	private SessionDAO currentSessionDAO;
-	
-	@Autowired
-	private LogInDAO logindao;
-	
 	
 	
 	@Override

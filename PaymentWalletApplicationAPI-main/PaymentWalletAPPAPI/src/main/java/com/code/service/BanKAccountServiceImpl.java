@@ -1,8 +1,6 @@
 package com.code.service;
 
 import java.util.Optional;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +14,7 @@ import com.code.model.Customer;
 import com.code.model.Wallet;
 import com.code.repository.BankAccountDao;
 import com.code.repository.CustomerDAO;
-import com.code.repository.LogInDAO;
 import com.code.repository.SessionDAO;
-
-import java.util.*;
 
 @Service
 public class BanKAccountServiceImpl implements BankAccountService {
@@ -32,9 +27,6 @@ public class BanKAccountServiceImpl implements BankAccountService {
 
 	@Autowired
 	private CustomerDAO cDao;
-
-	@Autowired
-	private LogInDAO logInDAO;
 
 	@Override
 	public BankAccount addBank(BankAccount bankAccount, String uniqueId)

@@ -1,32 +1,21 @@
 package com.code.service;
 
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.code.exception.CustomerNotException;
 import com.code.exception.TransactionNotFoundException;
 import com.code.exception.UserNotLogedinException;
 import com.code.model.*;
 import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
 import com.code.repository.TransactionDao;
-import com.code.repository.WalletDao;
-
-import io.swagger.v3.oas.annotations.servers.Server;
 
 @Service
 public class TranscationServiceImpl implements TransactionService{
-	
-	@Autowired
-	private WalletDao walletdao;
 	
 	@Autowired
 	private CustomerDAO customerDAO;
@@ -106,7 +95,7 @@ public class TranscationServiceImpl implements TransactionService{
 		
 		Optional<Customer> customer=  customerDAO.findById(optional.get().getUserId());
 		Wallet wallet = customer.get().getWallet();
-		List<Transaction> transaction = wallet.getTransaction();
+		wallet.getTransaction();
 		List<Transaction> transactionslist = transactiondao.getTransactionByTransactionType(type);
 		
 		List<Transaction> transactionLists= new ArrayList<>();
