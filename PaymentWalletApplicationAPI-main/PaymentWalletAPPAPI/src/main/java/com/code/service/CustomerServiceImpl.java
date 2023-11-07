@@ -2,7 +2,6 @@ package com.code.service;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.LoginException;
@@ -10,14 +9,15 @@ import com.code.model.Customer;
 import com.code.model.Wallet;
 import com.code.repository.CustomerDAO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService{
 	
-	@Autowired
-	private CustomerDAO signUpDAO;
+	private final CustomerDAO signUpDAO;
  	
-	@Autowired
-	private CurrentUserSessionService getCurrentLoginUserSession;
+	private final CurrentUserSessionService getCurrentLoginUserSession;
 
 	@Override
 	public Customer createNewSignUp(Customer newSignUp) throws LoginException {

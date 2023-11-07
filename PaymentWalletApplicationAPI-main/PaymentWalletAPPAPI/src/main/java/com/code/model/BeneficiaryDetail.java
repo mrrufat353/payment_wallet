@@ -34,7 +34,6 @@ public class BeneficiaryDetail {
 
 	public BeneficiaryDetail() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public BeneficiaryDetail(

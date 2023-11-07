@@ -1,7 +1,6 @@
 package com.code.service;
 
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.BankAccountNotExsists;
@@ -16,17 +15,17 @@ import com.code.repository.BankAccountDao;
 import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BanKAccountServiceImpl implements BankAccountService {
 
-	@Autowired
-	private BankAccountDao bankDao;
+	private final BankAccountDao bankDao;
 
-	@Autowired
-	private SessionDAO sessionDao;
+	private final SessionDAO sessionDao;
 
-	@Autowired
-	private CustomerDAO cDao;
+	private final CustomerDAO cDao;
 
 	@Override
 	public BankAccount addBank(BankAccount bankAccount, String uniqueId)

@@ -3,7 +3,6 @@ package com.code.service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.code.exception.BeneficiaryDetailException;
 import com.code.exception.CustomerNotException;
@@ -23,24 +22,21 @@ import com.code.repository.SessionDAO;
 import com.code.repository.TransactionDao;
 import com.code.repository.WalletDao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class WalletServiceImpl implements WalletService {
 	
-	@Autowired
-	private TransactionDao transactiodao;
+	private final TransactionDao transactiodao;
 	
-	@Autowired
-	private BankAccountDao bankaccountdao;
+	private final BankAccountDao bankaccountdao;
 	
+	private final WalletDao walletDao;
 	
-	@Autowired
-	private WalletDao walletDao;
+	private final CustomerDAO customerDAO;
 	
-	@Autowired
-	private CustomerDAO customerDAO;
-	
-	@Autowired
-	private SessionDAO currentSessionDAO;
+	private final SessionDAO currentSessionDAO;
 	
 	
 	@Override
@@ -62,7 +58,7 @@ public class WalletServiceImpl implements WalletService {
 
 
 	@Override
-	public Transaction fundTransfer(String sourceMoblieNo, String targetMobileNo, Double amout,String uniqueId) throws CustomerNotException, LoginException,BeneficiaryDetailException, InsufficientBalanceException {
+	public Transaction fundTransfer(String sourceMoblieNo, String targetMobileNo, Double amount,String uniqueId) throws CustomerNotException, LoginException,BeneficiaryDetailException, InsufficientBalanceException {
 		
 		Optional<CurrentSessionUser> currentUser = currentSessionDAO.findByUuid(uniqueId);
 		if(!currentUser.isPresent()) {
@@ -102,15 +98,15 @@ public class WalletServiceImpl implements WalletService {
 		}
 		Customer tragetCustomer = tragetopt.get();
 		
-		if(wallet.getBalance()<amout || wallet.getBalance()==null) {
+		if(wallet.getBalance()<amount || wallet.getBalance()==null) {
 			throw new InsufficientBalanceException("Insufficent balance");
 		}
 		
-		wallet.setBalance(wallet.getBalance()-amout);
+		wallet.setBalance(wallet.getBalance()-amount);
 		if(tragetCustomer.getWallet().getBalance()==null ) {
-			tragetCustomer.getWallet().setBalance(amout);
+			tragetCustomer.getWallet().setBalance(amount);
 		}else {
-			tragetCustomer.getWallet().setBalance(tragetCustomer.getWallet().getBalance()+amout);
+			tragetCustomer.getWallet().setBalance(tragetCustomer.getWallet().getBalance()+amount);
 		}
 		
 		// Add to transaction
@@ -118,7 +114,7 @@ public class WalletServiceImpl implements WalletService {
 		Transaction transaction = new Transaction();
         transaction.setTransactionType(TransactionType.WALLET_TO_WALLET);
         transaction.setTransactionDate(LocalDateTime.now());
-        transaction.setAmount(amout);
+        transaction.setAmount(amount);
         transaction.setDescription("Fund Transfer from Wallet to Wallet Successfull !");
         transaction.setWalletId(wallet.getWalletId());
         wallet.getTransaction().add(transaction);

@@ -3,7 +3,6 @@ package com.code.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.BeneficiaryDetailException;
@@ -15,14 +14,17 @@ import com.code.repository.BeneficiaryDetailDao;
 import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BeneficiaryDetailServicesImpl implements BeneficiaryDetailServices {
-	@Autowired
-	private BeneficiaryDetailDao bDao;
-	@Autowired
-	private SessionDAO sDao;
-	@Autowired
-	private CustomerDAO customerDao;
+	
+	private final BeneficiaryDetailDao bDao;
+	
+	private final SessionDAO sDao;
+	
+	private final CustomerDAO customerDao;
 	
 
 	@Override

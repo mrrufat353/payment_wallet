@@ -46,7 +46,6 @@ public class CurrentSessionUser {
 
 	public CurrentSessionUser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getId() {

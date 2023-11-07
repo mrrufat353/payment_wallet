@@ -3,7 +3,6 @@ package com.code.service;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.LoginException;
@@ -14,20 +13,19 @@ import com.code.repository.CustomerDAO;
 import com.code.repository.LogInDAO;
 import com.code.repository.SessionDAO;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class LoginServiceImpl implements LoginService{
 
-	@Autowired
-	private CustomerDAO signUpDAO;
+	private final CustomerDAO signUpDAO;
 	
-	@Autowired
-	private SessionDAO SessionDAO;
+	private final SessionDAO SessionDAO;
 	
-	@Autowired
-	private CurrentUserSessionService getCurrentLoginUserSession;
+	private final CurrentUserSessionService getCurrentLoginUserSession;
 	
-	@Autowired
-	private LogInDAO loginDAO;
+	private final LogInDAO loginDAO;
 	
 	
 

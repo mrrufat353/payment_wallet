@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.TransactionNotFoundException;
@@ -14,17 +13,17 @@ import com.code.repository.CustomerDAO;
 import com.code.repository.SessionDAO;
 import com.code.repository.TransactionDao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class TranscationServiceImpl implements TransactionService{
 	
-	@Autowired
-	private CustomerDAO customerDAO;
+	private final CustomerDAO customerDAO;
 	
-	@Autowired
-	private TransactionDao transactiondao;
+	private final TransactionDao transactiondao;
 	
-	@Autowired
-	private SessionDAO sessionDao;
+	private final SessionDAO sessionDao;
 
 	@Override
 	public List<Transaction> viewAlltransaction(String  uniqueId) throws UserNotLogedinException, TransactionNotFoundException {

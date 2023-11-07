@@ -11,7 +11,6 @@ public class MyErrorDetails {
 	
 	public MyErrorDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public MyErrorDetails(LocalDateTime timestamp, String message, String details) {
 		super();

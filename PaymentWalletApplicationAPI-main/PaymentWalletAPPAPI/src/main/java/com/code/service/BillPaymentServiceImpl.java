@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.code.exception.InsufficientBalanceException;
@@ -20,23 +19,21 @@ import com.code.repository.SessionDAO;
 import com.code.repository.TransactionDao;
 import com.code.repository.WalletDao;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class BillPaymentServiceImpl implements BillPaymentService {
 
-	@Autowired
-	private BillPaymentDao billDao;
+	private final BillPaymentDao billDao;
 
-	@Autowired
-	private SessionDAO sessionDao;
+	private final SessionDAO sessionDao;
 
-	@Autowired
-	private CustomerDAO cDao;
+	private final CustomerDAO cDao;
 
-	@Autowired
-	private WalletDao walletDao;
+	private final WalletDao walletDao;
 
-	@Autowired
-	private TransactionDao transactionDao;
+	private final TransactionDao transactionDao;
 
 	@Override
 	public BillPayment makeBillPayment(BillPayment billpayment, String uniqueId)

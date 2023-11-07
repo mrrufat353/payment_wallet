@@ -13,10 +13,12 @@ import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "transactions")
 public class Transaction {
 
@@ -93,6 +95,9 @@ public class Transaction {
 				+ ", transactionDate=" + transactionDate + ", amount=" + amount + ", description=" + description
 				+ ", walletId=" + walletId + "]";
 	}
+
+    public Transaction() {
+    }
 
 
 }

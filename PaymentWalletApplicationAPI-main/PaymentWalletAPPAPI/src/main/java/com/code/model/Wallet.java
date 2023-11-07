@@ -13,10 +13,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Entity
 @Data
+@AllArgsConstructor
 @Table(name = "wallet")
 public class Wallet {
 
@@ -83,7 +85,6 @@ public class Wallet {
 
 	public Wallet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<BillPayment> getBillpayments() {
